@@ -1,46 +1,52 @@
 package com.nitrous.docanalyzer.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// ChatGPT Monochrome Palette
-private val PureBlack = Color(0xFF000000)
-private val CardDark = Color(0xFF111111)
-private val BorderDark = Color(0xFF222222)
-private val InputDark = Color(0xFF1C1C1C)
-private val PressedDark = Color(0xFF2A2A2A)
-private val TextPrimaryDark = Color(0xFFFFFFFF)
-private val TextSecondaryDark = Color(0xFF9AA0A6)
-private val DeleteRed = Color(0xFFEF4444)
+// GPT-Style Monochrome Palette
+val BackgroundBlack = Color(0xFF000000)
+val ElevatedSurface = Color(0xFF111111)
+val BubbleBackground = Color(0xFF1A1A1A)
+val InputDockColor = Color(0xFF141414)
+val StrokeColor = Color(0xFF2A2A2A)
+val PrimaryText = Color(0xFFEDEDED)
+val SecondaryText = Color(0xFFA0A0A0)
+val HintText = Color(0xFF6E6E6E)
+val DestructiveRed = Color(0xFFEF4444)
+val SuccessGreen = Color(0xFF10B981)
 
-private val DarkColorScheme = darkColorScheme(
-    primary = TextPrimaryDark,
-    onPrimary = PureBlack,
-    background = PureBlack,
-    onBackground = TextPrimaryDark,
-    surface = CardDark,
-    onSurface = TextPrimaryDark,
-    surfaceVariant = InputDark,
-    onSurfaceVariant = TextSecondaryDark,
-    outline = BorderDark,
-    error = DeleteRed,
-    onError = TextPrimaryDark
+private val MonochromeColorScheme = darkColorScheme(
+    primary = Color.White,
+    onPrimary = BackgroundBlack,
+    primaryContainer = ElevatedSurface,
+    onPrimaryContainer = PrimaryText,
+    secondary = SecondaryText,
+    onSecondary = BackgroundBlack,
+    secondaryContainer = BubbleBackground,
+    onSecondaryContainer = PrimaryText,
+    tertiary = Color.LightGray,
+    onTertiary = BackgroundBlack,
+    background = BackgroundBlack,
+    onBackground = PrimaryText,
+    surface = BackgroundBlack,
+    onSurface = PrimaryText,
+    surfaceVariant = ElevatedSurface,
+    onSurfaceVariant = SecondaryText,
+    outline = StrokeColor,
+    outlineVariant = StrokeColor,
+    error = DestructiveRed,
+    onError = Color.White
 )
 
 @Composable
 fun DocAnalyzerTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    // Stick to Dark for ChatGPT style
-    val colorScheme = DarkColorScheme
-
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = MonochromeColorScheme,
         typography = Typography,
         shapes = Shapes,
         content = content
